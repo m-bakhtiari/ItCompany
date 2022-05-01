@@ -1,13 +1,13 @@
 ﻿@model List<User>
 @{
     Layout = "_AdminLayout";
-    var i =1;
+    var i = 1;
 }
 <section id="main-content">
     <section class="wrapper">
         <!-- page start-->
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
                 <section class="panel">
                     <header class="panel-heading">
                         جدول کاربران
@@ -26,20 +26,20 @@
                         </thead>
                         <tbody>
                             @foreach (var item in Model)
-                           {
-                            <tr>
-                                <td>@i</td>
-                                <td>@item.Name</td>
-                                <td>@item.Username</td>
-                                <td>@item.Email</td>
-                                <td>@item.Phone</td>
-                                <td>
-                                    <a class="btn btn-danger" href="/Admin/DeleteUser/@item.Id">حذف</a>
-                                    <a class="btn btn-primary" href="/Admin/UpdateUser/@item.Id">ویرایش</a>
-                                </td>
-                            </tr>
-                               i++;
-                           }
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Username</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="/Admin/DeleteUser/@item.Id">حذف</a>
+                                        <a class="btn btn-primary" href="/Admin/UpdateUser/@item.Id">ویرایش</a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
 
                         </tbody>
                     </table>

@@ -1,0 +1,44 @@
+﻿@model User
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" href="/Admin/img/favicon.html">
+
+    <title>Login</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/Admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Admin/css/bootstrap-reset.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/Admin/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="/Admin/css/style.css" rel="stylesheet">
+    <link href="/Admin/css/style-responsive.css" rel="stylesheet" />
+</head>
+
+<body class="login-body">
+
+    <div class="container">
+
+        <form class="form-signin" action="/Register" method="post">
+            <h2 class="form-signin-heading">همین حالا عضو شوید</h2>
+            <div class="login-wrap">
+                <input type="text" class="form-control" placeholder="نام کاربری" autofocus asp-for="Username" required="required">
+                <input type="text" class="form-control" placeholder="نام و نام خانوادگی" asp-for="Name" required="required">
+                <input type="text" class="form-control" placeholder="شماره تماس" asp-for="Phone" required="required">
+                <input type="email" class="form-control" placeholder="ایمیل" asp-for="Email" required="required">
+                <input type="password" class="form-control" style="margin-top:10px" placeholder="کلمه عبور" required="required" asp-for="Password">
+                <button class="btn btn-lg btn-login btn-block" type="submit">ثبت نام</button>
+            </div>
+
+        </form>
+
+    </div>
+
+</body>
+</html>

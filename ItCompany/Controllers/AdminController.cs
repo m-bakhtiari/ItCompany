@@ -1,12 +1,16 @@
-﻿using System;
-using ItCompany.Context;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+﻿using ItCompany.Context;
 using ItCompany.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Linq;
+using System.Security.Claims;
 
 namespace ItCompany.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AdminController : Controller
     {
         ItCompanyContext ItCompanyContext;
@@ -70,5 +74,6 @@ namespace ItCompany.Controllers
             ItCompanyContext.SaveChanges();
             return View("UserList", ItCompanyContext.Users.ToList());
         }
+
     }
 }
