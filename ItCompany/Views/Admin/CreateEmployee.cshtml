@@ -1,0 +1,40 @@
+﻿@model ItCompany.Models.Dto.EmployeeDto
+@{
+    Layout = "_AdminLayout";
+}
+<section id="main-content">
+    <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        افزودن مورد جدید
+                    </header>
+                    <div class="panel-body">
+                        <form role="form" method="post" action="@ViewBag.ReturnUrl" enctype="multipart/form-data">
+                            <input type="hidden" asp-for="Employee.Id" value="@Model.Employee.Id" />
+                            <div class="form-group">
+                                <label>نام</label>
+                                <input type="text" class="form-control" asp-for="Employee.Name" placeholder="نام" required="required">
+                            </div>
+                            <div class="form-group">
+                                <label>عنوان شغلی</label>
+                                <textarea type="text" class="form-control" asp-for="Employee.JobTitle" placeholder="عنوان شغلی" required="required"></textarea>
+                            </div>
+                           
+                            <div class="form-group">
+                                <label>تصویر</label>
+                                <input type="file" asp-for="Image">
+                            </div>
+                            <button type="submit" class="btn btn-info">ثبت</button>
+                        </form>
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+    </section>
+</section>

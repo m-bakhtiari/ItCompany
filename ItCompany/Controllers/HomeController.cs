@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using ItCompany.Context;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using ItCompany.Models.Dto;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.EntityFrameworkCore;
 
 namespace ItCompany.Controllers
 {
@@ -24,18 +26,27 @@ namespace ItCompany.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new IndexDto()
+            {
+                Message = new Message(),
+                ProductGroups = ItCompanyContext.ProductGroups.Include(x => x.Products).ToList(),
+                Slides = ItCompanyContext.Slides.ToList()
+            });
         }
 
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult SubmitMessage(Message message)
         {
-            return View();
+            message.RecordDate = DateTime.Now;
+            ItCompanyContext.Messages.Add(message);
+            ItCompanyContext.SaveChanges();
+            return Redirect("/");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return Redirect("/");
         }
 
         [HttpGet("/Register")]
@@ -47,6 +58,7 @@ namespace ItCompany.Controllers
         [HttpPost("/Register")]
         public IActionResult Register(User user)
         {
+            user.RecordDate = DateTime.Now;
             ItCompanyContext.Users.Add(user);
             ItCompanyContext.SaveChanges();
             return View("Login");

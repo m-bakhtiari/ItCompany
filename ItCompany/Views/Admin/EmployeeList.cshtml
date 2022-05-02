@@ -1,0 +1,50 @@
+﻿@model List<Employee>
+@{
+    Layout = "_AdminLayout";
+    var i = 1;
+}
+<section id="main-content">
+    <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        جدول
+                        <a class="btn btn-success" href="/Admin/CreateEmployee">افزودن مورد جدید</a>
+                    </header>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>نام</th>
+                                <th>عنوان شغلی</th>
+                                <th>تصویر</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>@i</td>
+                                <td>@item.Name</td>
+                                <td>@item.JobTitle</td>
+                                <td><img src="/Images/@item.ImageName" style="max-height: 300px" /></td>
+                                <td>
+                                    <a class="btn btn-danger" href="/Admin/DeleteEmployee/@item.Id">حذف</a>
+                                    <a class="btn btn-primary" href="/Admin/UpdateEmployee/@item.Id">ویرایش</a>
+                                </td>
+                            </tr>
+                                i++;
+                            }
+
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <!-- page end-->
+    </section>
+</section>

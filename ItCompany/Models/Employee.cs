@@ -12,6 +12,6 @@ namespace ItCompany.Models
 
         public string JobTitle { get; set; }
 
-        public string Image { get; set; }
+        public string ImageName { get; set; }
     }
 }

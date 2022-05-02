@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
 using System.Linq;
+using ItCompany.Models.Dto;
 using Microsoft.EntityFrameworkCore;
 
 namespace ItCompany.Controllers
@@ -252,6 +253,140 @@ namespace ItCompany.Controllers
         public IActionResult MessageList()
         {
             return View(ItCompanyContext.Messages.ToList());
+        }
+        #endregion
+
+        #region Employee
+
+        public IActionResult CreateEmployee()
+        {
+            ViewBag.ReturnUrl = "/Admin/CreateEmployee";
+            return View(new EmployeeDto() { Employee = new Employee() });
+        }
+
+        public IActionResult EmployeeList()
+        {
+            return View(ItCompanyContext.Employees.ToList());
+        }
+
+        [HttpPost]
+        public IActionResult CreateEmployee(EmployeeDto EmployeeDto)
+        {
+            var Employee = EmployeeDto.Employee;
+            if (EmployeeDto.Image != null)
+            {
+                Employee.ImageName = NameGenerator.GenerateUniqCode() + Path.GetExtension(EmployeeDto.Image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", Employee.ImageName);
+                using var stream = new FileStream(imagePath, FileMode.Create);
+                EmployeeDto.Image.CopyToAsync(stream);
+            }
+            ItCompanyContext.Employees.Add(Employee);
+            ItCompanyContext.SaveChanges();
+            return View("EmployeeList", ItCompanyContext.Employees.ToList());
+        }
+
+        [HttpGet("/Admin/UpdateEmployee/{EmployeeId}")]
+        public IActionResult UpdateEmployee(Guid EmployeeId)
+        {
+            ViewBag.ReturnUrl = "/Admin/UpdateEmployee";
+            var Employee = ItCompanyContext.Employees.FirstOrDefault(x => x.Id == EmployeeId);
+            var model = new EmployeeDto()
+            {
+                Employee = Employee
+            };
+            return View("CreateEmployee", model);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateEmployee(EmployeeDto EmployeeDto)
+        {
+            var Employee = EmployeeDto.Employee;
+            if (EmployeeDto.Image != null)
+            {
+                Employee.ImageName = NameGenerator.GenerateUniqCode() + Path.GetExtension(EmployeeDto.Image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", Employee.ImageName);
+                using var stream = new FileStream(imagePath, FileMode.Create);
+                EmployeeDto.Image.CopyToAsync(stream);
+            }
+            ItCompanyContext.Employees.Update(Employee);
+            ItCompanyContext.SaveChanges();
+            return View("EmployeeList", ItCompanyContext.Employees.ToList());
+        }
+
+        [HttpGet("/Admin/DeleteEmployee/{EmployeeId}")]
+        public IActionResult DeleteEmployee(Guid EmployeeId)
+        {
+            var Employee = ItCompanyContext.Employees.Find(EmployeeId);
+            ItCompanyContext.Employees.Remove(Employee);
+            ItCompanyContext.SaveChanges();
+            return View("EmployeeList", ItCompanyContext.Employees.ToList());
+        }
+        #endregion
+
+        #region Customer
+
+        public IActionResult CreateCustomer()
+        {
+            ViewBag.ReturnUrl = "/Admin/CreateCustomer";
+            return View(new CustomerDto() { Customer = new Customer() });
+        }
+
+        public IActionResult CustomerList()
+        {
+            return View(ItCompanyContext.Customers.ToList());
+        }
+
+        [HttpPost]
+        public IActionResult CreateCustomer(CustomerDto CustomerDto)
+        {
+            var Customer = CustomerDto.Customer;
+            if (CustomerDto.Image != null)
+            {
+                Customer.ImageName = NameGenerator.GenerateUniqCode() + Path.GetExtension(CustomerDto.Image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", Customer.ImageName);
+                using var stream = new FileStream(imagePath, FileMode.Create);
+                CustomerDto.Image.CopyToAsync(stream);
+            }
+            ItCompanyContext.Customers.Add(Customer);
+            ItCompanyContext.SaveChanges();
+            return View("CustomerList", ItCompanyContext.Customers.ToList());
+        }
+
+        [HttpGet("/Admin/UpdateCustomer/{CustomerId}")]
+        public IActionResult UpdateCustomer(Guid CustomerId)
+        {
+            ViewBag.ReturnUrl = "/Admin/UpdateCustomer";
+            var Customer = ItCompanyContext.Customers.FirstOrDefault(x => x.Id == CustomerId);
+            var model = new CustomerDto()
+            {
+                Customer = Customer
+            };
+            return View("CreateCustomer", model);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCustomer(CustomerDto CustomerDto)
+        {
+            var Customer = CustomerDto.Customer;
+            if (CustomerDto.Image != null)
+            {
+                Customer.ImageName = NameGenerator.GenerateUniqCode() + Path.GetExtension(CustomerDto.Image.FileName);
+                var imagePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/Images", Customer.ImageName);
+                using var stream = new FileStream(imagePath, FileMode.Create);
+                CustomerDto.Image.CopyToAsync(stream);
+            }
+            ItCompanyContext.Customers.Update(Customer);
+            ItCompanyContext.SaveChanges();
+            return View("CustomerList", ItCompanyContext.Customers.ToList());
+        }
+
+        [HttpGet("/Admin/DeleteCustomer/{CustomerId}")]
+        public IActionResult DeleteCustomer(Guid CustomerId)
+        {
+            var Customer = ItCompanyContext.Customers.Find(CustomerId);
+            ItCompanyContext.Customers.Remove(Customer);
+            ItCompanyContext.SaveChanges();
+            return View("CustomerList", ItCompanyContext.Customers.ToList());
         }
         #endregion
 
