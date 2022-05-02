@@ -1,0 +1,31 @@
+﻿@model ProductGroup
+@{
+    Layout = "_AdminLayout";
+}
+<section id="main-content">
+    <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        افزودن مورد جدید
+                    </header>
+                    <div class="panel-body">
+                        <form role="form" method="post" action="@ViewBag.ReturnUrl">
+                            <input type="hidden" asp-for="Id" value="@Model.Id" />
+                            <div class="form-group">
+                                <label>عنوان</label>
+                                <input type="text" class="form-control" asp-for="Title" placeholder="عنوان" required="required">
+                            </div>
+                            <button type="submit" class="btn btn-info">ثبت</button>
+                        </form>
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+
+    </section>
+</section>

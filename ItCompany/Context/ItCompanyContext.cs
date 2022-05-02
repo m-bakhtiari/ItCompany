@@ -14,24 +14,19 @@ namespace ItCompany.Context
 
         }
 
-        #region Entities
-
         public DbSet<User> Users { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Email> Emails { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<ProductGroup> ProductGroups { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Slide> Slides { get; set; }
 
-        #endregion
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            var cascadeFKs = modelBuilder.Model.GetEntityTypes()
-                .SelectMany(t => t.GetForeignKeys())
-                .Where(fk => !fk.IsOwnership && fk.DeleteBehavior == DeleteBehavior.Cascade);
-
-            foreach (var fk in cascadeFKs)
-                fk.DeleteBehavior = DeleteBehavior.Restrict;
-
             modelBuilder.Entity<User>().HasData(new List<User>()
             {
                 new User()

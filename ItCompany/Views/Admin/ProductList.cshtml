@@ -1,0 +1,52 @@
+﻿@model List<Product>
+@{
+    Layout = "_AdminLayout";
+    var i = 1;
+}
+<section id="main-content">
+    <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading">
+                        جدول
+                        <a class="btn btn-success" href="/Admin/CreateProduct">افزودن مورد جدید</a>
+                    </header>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>عنوان</th>
+                                <th>تصویر</th>
+                                <th>گروه</th>
+                                <th>توضیحات</th>
+                                <th>عملیات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Title</td>
+                                    <td><img src="/Images/@item.ImageName" style="max-height: 300px" /></td>
+                                    <td>@item.ProductGroup.Title</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        <a class="btn btn-danger" href="/Admin/DeleteProduct/@item.Id">حذف</a>
+                                        <a class="btn btn-primary" href="/Admin/UpdateProduct/@item.Id">ویرایش</a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+
+        <!-- page end-->
+    </section>
+</section>
