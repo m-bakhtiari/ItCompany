@@ -62,7 +62,6 @@ img {
     -ms-user-select: none;
     user-select: none;
     -webkit-user-drag: none;
-    user-drag: none;
 }
 a,
 a:hover,
@@ -1412,11 +1411,11 @@ li .single_team_text p{
 /*====================================================================
                         Trail Section 
 ======================================================================*/
-.main_trial_area{
-    background: url(../images/trailbg.jpg) no-repeat top center;
+.main_trial_area {
+    background: url(../images/pngtree-g20-summit-simple-business-background-image_232743.jpg) no-repeat top center;
     overflow: hidden;
     background-size: cover;
-    color:#fff;
+    color: #fff;
 }
 .main_trial h2{
     text-transform: none;

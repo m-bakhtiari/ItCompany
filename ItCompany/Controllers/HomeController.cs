@@ -1,17 +1,13 @@
-﻿using ItCompany.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using ItCompany.Context;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Claims;
+﻿using ItCompany.Context;
+using ItCompany.Models;
 using ItCompany.Models.Dto;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
+using System.Security.Claims;
 
 namespace ItCompany.Controllers
 {
@@ -30,7 +26,13 @@ namespace ItCompany.Controllers
             {
                 Message = new Message(),
                 ProductGroups = ItCompanyContext.ProductGroups.Include(x => x.Products).ToList(),
-                Slides = ItCompanyContext.Slides.ToList()
+                Slides = ItCompanyContext.Slides.ToList(),
+                Employees = ItCompanyContext.Employees.ToList(),
+                Customers = ItCompanyContext.Customers.ToList(),
+                CustomersCount = ItCompanyContext.Customers.Count(),
+                MessageCount = ItCompanyContext.Messages.Count(),
+                ProductCount = ItCompanyContext.Products.Count(),
+                EmployeeCount = ItCompanyContext.Employees.Count(),
             });
         }
 
@@ -39,6 +41,14 @@ namespace ItCompany.Controllers
         {
             message.RecordDate = DateTime.Now;
             ItCompanyContext.Messages.Add(message);
+            ItCompanyContext.SaveChanges();
+            return Redirect("/");
+        }
+
+        [HttpPost]
+        public IActionResult SubmitEmail(Email email)
+        {
+            ItCompanyContext.Emails.Add(email);
             ItCompanyContext.SaveChanges();
             return Redirect("/");
         }

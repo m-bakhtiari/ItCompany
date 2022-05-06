@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ItCompany.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AdminController : Controller
     {
         ItCompanyContext ItCompanyContext;

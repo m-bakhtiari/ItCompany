@@ -1,387 +1,336 @@
 ﻿@model ItCompany.Models.Dto.IndexDto
 
 <div class="culmn">
-    <header id="main_menu" class="header navbar-fixed-top">
-        <div class="main_menu_bg">
+<header id="main_menu" class="header navbar-fixed-top">
+    <div class="main_menu_bg">
+        <div class="container">
+            <div class="row">
+                <div class="nave_menu">
+                    <nav class="navbar navbar-default">
+                        <div class="container-fluid">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="/">
+                                    <img src="/Site/assets/images/logo.png" />
+                                </a>
+                            </div>
+
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                                <ul class="nav navbar-nav navbar-left">
+                                    <li><a href="#home">صفحه اصلی</a></li>
+                                    <li><a href="#history">درباره ما</a></li>
+                                    <li><a href="#portfolio">نمونه کارها</a></li>
+                                    <li><a href="#team">تیم ما</a></li>
+                                    <li><a href="#contact">تماس با ما</a></li>
+                                    <li><a href="#trial">ثبت در خبرنامه</a></li>
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="/Admin">مدیریت سایت</a></li>
+                                    }
+
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</header> <!--End of header -->
+<!--home Section -->
+<section id="home" class="home">
+    <div class="overlay">
+        <div class="home_skew_border">
             <div class="container">
-                <div class="row">
-                    <div class="nave_menu">
-                        <nav class="navbar navbar-default">
-                            <div class="container-fluid">
-                                <!-- Brand and toggle get grouped for better mobile display -->
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                    <a class="navbar-brand" href="#home">
-                                        <img src="/Site/assets/images/logo.png" />
-                                    </a>
-                                </div>
-
-                                <!-- Collect the nav links, forms, and other content for toggling -->
-                                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                                    <ul class="nav navbar-nav navbar-left">
-                                        <li><a href="#home">صفحه اصلی</a></li>
-                                        <li><a href="#history">درباره ما</a></li>
-                                        <li><a href="#portfolio">نمونه کارها</a></li>
-                                        <li><a href="#pricing">قیمت ها</a></li>
-                                        <li><a href="#team">تیم ما</a></li>
-                                        <li><a href="#contact">تماس با ما</a></li>
-                                    </ul>
-
-
-                                </div>
-
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </header> <!--End of header -->
-    <!--home Section -->
-    <section id="home" class="home">
-        <div class="overlay">
-            <div class="home_skew_border">
-                <div class="container">
-                    <div class="row" dir="ltr">
-                        <div class="col-sm-12 ">
-                            <div class="main_home_slider text-center">
-                               @foreach (var item in Model.Slides)
-                               {
-                                   <div class="single_home_slider">
-                                       <div class="main_home wow fadeInUp" data-wow-duration="700ms">
-                                           <h2>@item.Title</h2>
-                                           <div class="separator"></div>
-                                           <p>@item.Description</p>
-                                       </div>
-                                   </div>
-                               }
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="scrooldown">
-                    <a href="#feature"><i class="fa fa-arrow-down"></i></a>
-                </div>
-            </div>
-        </div>
-    </section><!--End of home section -->
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
-    <!--feature section -->
-    <section id="feature" class="feature sections">
-        <div class="container">
-            <div class="row">
-                <div class="main_feature text-center">
-
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-clone"></i>
-                            </div>
-
-                            <h4>طراحی چشم نواز</h4>
-                            <div class="separator3"></div>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. لورم ایپسوم متن ساختگی با تولید سادگی.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-heart-o"></i>
-                            </div>
-
-                            <h4>کدنویسی حرفه ای</h4>
-                            <div class="separator3"></div>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. لورم ایپسوم متن ساختگی با تولید سادگی.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-lightbulb-o"></i>
-                            </div>
-                            <h4>ایده های خلاقانه</h4>
-                            <div class="separator3"></div>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. لورم ایپسوم متن ساختگی با تولید سادگی.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-3">
-                        <div class="single_feature">
-                            <div class="single_feature_icon">
-                                <i class="fa fa-comments-o"></i>
-                            </div>
-
-                            <h4>پشتیبانی رایگان</h4>
-                            <div class="separator3"></div>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ. لورم ایپسوم متن ساختگی با تولید سادگی.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div><!--End of container -->
-    </section><!--End of feature Section -->
-    <hr />
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
-    <!-- History section -->
-    <section id="history" class="history sections">
-        <div class="container">
-            <div class="row">
-                <div class="main_history">
-                    <div class="col-sm-6">
-                        <div class="single_history_img">
-                            <img src="/Site/assets/images/stab1.png" alt="" />
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <div class="single_history_content">
-                            <div class="head_title">
-                                <h2>تاریخچه ما</h2>
-                            </div>
-                            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. </p>
-
-                            <a href="" class="btn btn-lg">مرور کار ما</a>
-                        </div>
-                    </div>
-                </div>
-            </div><!--End of row -->
-        </div><!--End of container -->
-    </section><!--End of history -->
-    <!-- service Section -->
-    <section id="service" class="service">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="main_service">
-                    <div class="col-md-6 col-sm-12 no-padding">
-
-                        <div class="single_service single_service_text text-right">
-                            <div class="head_title">
-                                <h2>خدمات ما</h2>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                    <div class="row">
-
-                                        <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                            <article class="single_service_left_text">
-                                                <h4>طراحی وب</h4>
-                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برا</p>
-                                            </article>
-                                        </div>
-                                        <div class="col-sm-1 col-xs-1">
-                                            <figure class="single_service_icon">
-                                                <i class="fa fa-heart"></i>
-                                            </figure><!-- End of figure -->
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-12 -->
-
-                                <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                    <div class="row">
-
-                                        <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
-                                            <article class="single_service_left_text">
-                                                <h4>طراحی چاپ</h4>
-                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای</p>
-                                            </article>
-                                        </div>
-                                        <div class="col-sm-1 col-xs-1">
-                                            <figure class="single_service_icon">
-                                                <i class="fa fa-heart"></i>
-                                            </figure><!-- End of figure -->
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-12 -->
-
-                                <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
-                                    <div class="row">
-
-                                        <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1 margin-bottom-20">
-                                            <article class="single_service_left_text">
-                                                <h4>عکاسی</h4>
-                                                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و</p>
-                                            </article>
-                                        </div>
-                                        <div class="col-sm-1 col-xs-1">
-                                            <figure class="single_service_icon">
-                                                <i class="fa fa-heart"></i>
-                                            </figure><!-- End of figure -->
-                                        </div>
-                                    </div>
-                                </div><!-- End of col-sm-12 -->
-
-                            </div>
-                        </div>
-                    </div><!-- End of col-sm-6 -->
-
-                    <div class="col-md-6 col-sm-12 no-padding">
-                        <figure class="single_service single_service_img">
-                            <div class="overlay-img"></div>
-                            <img src="/Site/assets/images/servicerightimg.jpg" alt="" />
-                        </figure><!-- End of figure -->
-                    </div><!-- End of col-sm-6 -->
-
-                </div>
-            </div><!-- End of row -->
-        </div><!-- End of Container-fluid -->
-    </section><!-- End of service Section -->
-    <section id="portfolio" class="portfolio sections">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="main_portfolio">
-                    <div class="col-sm-12">
-                        <div class="head_title text-center">
-                            <h2>نمونه کارها</h2>
-                            <div class="subtitle">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            </div>
-                            <div class="separator"></div>
-                        </div>
-                    </div>
-                    <div class="work_menu text-center">
-                        <div id="filters" class="toolbar mb2 mt2">
-                            <button class="btn-md fil-cat filter active" data-filter="all">همه</button>/
-                            @foreach (var item in Model.ProductGroups)
+                <div class="row" dir="ltr">
+                    <div class="col-sm-12 ">
+                        <div class="main_home_slider text-center">
+                            @foreach (var item in Model.Slides)
                             {
-                                <button class="btn-md fil-cat filter" data-rel="@item.Id" data-filter=".@item.Id">@item.Title /</button>
-                            }
-                           
-                        </div>
-
-                    </div>
-                    <div style="clear:both;"></div>
-                    <div id="portfoliowork">
-                        @foreach(var item in Model.ProductGroups)
-                         {
-                            @foreach (var product in item.Products)
-                             {
-                                <div class="single_portfolio tile scale-anm grid-item-width2 @item.Id">
-                                    <img src="/Images/@product.ImageName" alt="@product.Title"/>
-                                    <a href="/Images/@product.ImageName" class="portfolio-img">
-                                        <div class="grid_item_overlay">
-                                            <div class="separator4"></div>
-                                            <h3>@product.Title</h3>
-                                        </div>
-                                    </a>
+                                <div class="single_home_slider">
+                                    <div class="main_home wow fadeInUp" data-wow-duration="700ms">
+                                        <h2>@item.Title</h2>
+                                        <div class="separator"></div>
+                                        <p>@item.Description</p>
+                                    </div>
                                 </div>
-                             }
-                         }
+                            }
+                        </div>
                     </div>
-
-                    <div style="clear:both;"></div>
                 </div>
             </div>
-        </div><!-- End off container -->
-    </section> <!-- End off Work Section -->
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
-    <!-- Study Section -->
-    <section id="study" class="study text-center wow fadeIn" data-wow-duration="2s" data-wow-dealy="1.5s">
-        <div class="container">
-            <div class="row">
-                <div class="main_study_area sections">
-                    <div class="head_title text-center">
-                        <h2>بررسی نمونه کار</h2>
-                        <div class="subtitle">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+            <div class="scrooldown">
+                <a href="#feature"><i class="fa fa-arrow-down"></i></a>
+            </div>
+        </div>
+    </div>
+</section><!--End of home section -->
+<!--feature section -->
+<section id="feature" class="feature sections">
+    <div class="container">
+        <div class="row">
+            <div class="main_feature text-center">
+
+                <div class="col-sm-3">
+                    <div class="single_feature">
+                        <div class="single_feature_icon">
+                            <i class="fa fa-clone"></i>
                         </div>
+
+                        <h4>طراحی چشم نواز</h4>
+                        <div class="separator3"></div>
+                        <p>تمامی طراحی ها ( وب سایت - برنامه موبایل - برنامه دیندوزی ) به صورت واکشگرا و مناسب برای تمامی مرورگرها , دستگاه ها می باشد و متناسب با سلیقه مشتری و هم چنین کار شما طراحی خواهد شد</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="single_feature">
+                        <div class="single_feature_icon">
+                            <i class="fa fa-heart-o"></i>
+                        </div>
+
+                        <h4>کدنویسی حرفه ای</h4>
+                        <div class="separator3"></div>
+                        <p>کد نویسی پروژه در تیمی مجرب و با کمترین خطای ممکن به صورت حرفه ای صورت می پذیرد</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="single_feature">
+                        <div class="single_feature_icon">
+                            <i class="fa fa-lightbulb-o"></i>
+                        </div>
+                        <h4>ایده های خلاقانه</h4>
+                        <div class="separator3"></div>
+                        <p>با ایده های خلاقانه و به روز محصول خود را چشم نوازتر و کاربردی تر نمایید</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="single_feature">
+                        <div class="single_feature_icon">
+                            <i class="fa fa-comments-o"></i>
+                        </div>
+
+                        <h4>پشتیبانی رایگان</h4>
+                        <div class="separator3"></div>
+                        <p>تیم پشتیبانی ما به صورت 24 ساعت در 7 روز هفته در خدمت مشتریان عزیز خواهد بود</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!--End of container -->
+</section><!--End of feature Section -->
+<hr />
+<!-- History section -->
+<section id="history" class="history sections">
+    <div class="container">
+        <div class="row">
+            <div class="main_history">
+                <div class="col-sm-6">
+                    <div class="single_history_img">
+                        <img src="/Site/assets/images/stab1.png" alt="" />
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="single_history_content">
+                        <div class="head_title">
+                            <h2>تاریخچه ما</h2>
+                        </div>
+                        <p>
+این افتخار ماست که اعضای تیم تکنیکال ما به نحوی گزینش شده اند که با تجربه های کاری متنوع و پشت سر گذاشتن بحران های بزرگ به این حوزه و روش های مقالبه با بحران های احتمالی کاملا مسلط هستند و این موضوع آرامش را برای صاحبات کسب و کارها فراهم آورده است.
+
+شرکت طراحی اپلیکیشن ما با بهره گیری از بهترین و به روزترین متد های طراحی اپلیکیشن در تهران در تلاش است تا نرخ مشتریان کسب و کار شما را به بالاترین میزان ممکن برساند در ما برای حد اکثر رساندن نرخ بازگشت سرمایه از تمام ابزارهای روز استفاده می کنیم.
+
+ما در مقابل استفاده بهینه از سرمایه ی شما کاملا متعهد هستیم و این اطمینان را به شما می دهیم که در جلسات اتاق فکر ما ساعت ها بر روی تدوین استراتژی های طراحی اپلیکیشن مختص کسب و کار شما زمان میگذاریم و تمام تلاش خود را برای حراست از اطلاعات و سرمایه ی شما انجام می دهیم
+
+تیم متخصص و زبده ی ما متشکل از متخصصان طراحی اپلیکیشن موبایل اندروید و آی او اس، وب، گرافیک، خلاقیت و ایده پردازی و طراحی وب است که به صورت شبانه روزی در خدمت رسانی به شما مشتریان عزیز در حوزه ی طراحی اپلیکیشن موبایل، اپلیکیشن وب و دیجیتال مارکتینگ در تلاش هستیم</p>
+                        <a href="#portfolio" class="btn btn-lg">مرور کار ما</a>
+                    </div>
+                </div>
+            </div>
+        </div><!--End of row -->
+    </div><!--End of container -->
+</section><!--End of history -->
+<!-- service Section -->
+<section id="service" class="service">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="main_service">
+                <div class="col-md-6 col-sm-12 no-padding">
+
+                    <div class="single_service single_service_text text-right">
+                        <div class="head_title">
+                            <h2>خدمات ما</h2>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-10 col-xs-10 margin-bottom-60">
+                                <div class="row">
+
+                                    <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+                                        <article class="single_service_left_text">
+                                            <h4>طراحی وب</h4>
+                                            <p>۹۳٪ از تصمیم گیری ها برای خرید، از جستجو در گوگل شروع می شود</p>
+                                            <p>داشتن وب سایت، حرفه ای بودن شما را نشان می دهد</p>
+                                            <p>سهولت در دسترسی به شما و اطلاعات شما</p>
+                                        </article>
+                                    </div>
+                                    <div class="col-sm-1 col-xs-1">
+                                        <figure class="single_service_icon">
+                                            <i class="fa fa-heart"></i>
+                                        </figure><!-- End of figure -->
+                                    </div>
+                                    <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+                                        <article class="single_service_left_text">
+                                            <h4>اپلیکیشن موبایل</h4>
+                                            <p>ارسال نوتیفیکیشن (هشدار و اعلان)</p>
+                                            <p>یکپارچه سازی شبکه های اجتماعی</p>
+                                            <p>پرداخت اینترنتی با موبایل</p>
+                                        </article>
+                                    </div>
+                                    <div class="col-sm-1 col-xs-1">
+                                        <figure class="single_service_icon">
+                                            <i class="fa fa-heart"></i>
+                                        </figure><!-- End of figure -->
+                                    </div>
+                                    <div class="col-sm-10 col-sm-offset-1 col-xs-9 col-xs-offset-1">
+                                        <article class="single_service_left_text">
+                                            <h4>دیجیتال مارکتینگ</h4>
+                                            <p>تعامل با رسانه های دیجیتال را فراموش نکنید</p>
+                                            <p>هرچقدر لایک بیشتر بهتر!</p>
+                                            <p>جلوتر از رقبای خود باشید</p>
+                                        </article>
+                                    </div>
+                                    <div class="col-sm-1 col-xs-1">
+                                        <figure class="single_service_icon">
+                                            <i class="fa fa-heart"></i>
+                                        </figure><!-- End of figure -->
+                                    </div>
+                                </div>
+                            </div><!-- End of col-sm-12 -->
+
+                        </div>
+                    </div>
+                </div><!-- End of col-sm-6 -->
+
+                <div class="col-md-6 col-sm-12 no-padding">
+                    <figure class="single_service single_service_img">
+                        <div class="overlay-img"></div>
+                        <img src="/Site/assets/images/servicerightimg.jpg" alt="" />
+                    </figure><!-- End of figure -->
+                </div><!-- End of col-sm-6 -->
+
+            </div>
+        </div><!-- End of row -->
+    </div><!-- End of Container-fluid -->
+</section><!-- End of service Section -->
+<section id="portfolio" class="portfolio sections">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="main_portfolio">
+                <div class="col-sm-12">
+                    <div class="head_title text-center">
+                        <h2>نمونه کارها</h2>
+                        <div class="subtitle">ده ها هزار نفر به تیم ما اعتماد کرده اند و وب سایت خودشان را با سایت ساز ما طراحی کرده اند. با استفاده از سیستم قدرتمند ما شما محدود به چند قالب نیستید و می توانید خودتان بدون نیاز به کدنویسی و دانش فنی، سایتی با ظاهر دلخواهتان را طراحی کنید. این ویژگی باعث متفاوت و منحصر به فرد بودن سایت های ساخته شده با ما نسبت به دیگر سایت ها شده است. در لیست زیر می توانید برخی از سایت های ساخته شده با تیم ما را مشاهده کنید.</div>
                         <div class="separator"></div>
                     </div>
-                  @foreach (var item in Model.ProductGroups)
-                  {
-                      @foreach (var product in item.Products)
-                      {
-                          <div class="single_study_content">
-                              <div class="col-sm-6">
-                                  <div class="single_study_slid_area">
-                                      <div class="single_study_text" dir="ltr">
-                                          <div class="study_slider">
-                                              <div class="item">
-                                                  <div class="s_study_icon">
-                                                      <i class="fa fa-lightbulb-o"></i>
-                                                  </div>
-                                                  <h4>@product.Title</h4>
-                                                  <div class="separator3"></div>
-                                                  <p>@product.Description</p>
-                                              </div>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="single_study_left_img">
-                                  <div class="col-sm-6">
-                                      <div class="single_study_img">
-                                          <img src="/Images/@product.ImageName" alt="@product.Title" />
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                      }
-                  }
                 </div>
-            </div><!-- End off row -->
-        </div><!-- End off Container -->
-    </section><!-- End off Study Section -->
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
-    <!-- Counter Section -->
-    <section id="counter" class="counter">
-        <div class="video_overlay">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="main_counter_area text-center">
+                <div class="work_menu text-center">
+                    <div id="filters" class="toolbar mb2 mt2">
+                        <button class="btn-md fil-cat filter active" data-filter="all">همه</button>/
+                        @foreach (var item in Model.ProductGroups)
+                        {
+                            <button class="btn-md fil-cat filter" data-rel="@item.Id" data-filter=".@item.Id">@item.Title /</button>
+                        }
+                           
+                    </div>
 
-                            <div class="row">
-                                <div class="single_counter border_left">
-                                    <div class="col-sm-3 col-xs-12">
-                                        <div class="single_counter_item">
-                                            <i class="icon icon-thumbs-up"></i>
-                                            <h2 class="statistic-counter">3891</h2>
-                                            <h4 class="">علاقه مندی های کاربر</h4>
-                                        </div>
+                </div>
+                <div style="clear:both;"></div>
+                <div id="portfoliowork">
+                    @foreach(var item in Model.ProductGroups)
+                    {
+                        @foreach (var product in item.Products)
+                        {
+                            <div class="single_portfolio tile scale-anm grid-item-width2 @item.Id">
+                                <img src="/Images/@product.ImageName" alt="@product.Title"/>
+                                <a href="/Images/@product.ImageName" class="portfolio-img">
+                                    <div class="grid_item_overlay">
+                                        <div class="separator4"></div>
+                                        <h3>@product.Title</h3>
+                                    </div>
+                                </a>
+                                <p>@product.Description</p>
+                            </div>
+                        }
+                    }
+                </div>
+
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div><!-- End off container -->
+</section> <!-- End off Work Section -->
+
+<!-- Counter Section -->
+<section id="counter" class="counter">
+    <div class="video_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="main_counter_area text-center">
+
+                        <div class="row">
+                            <div class="single_counter border_left">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_counter_item">
+                                        <i class="icon icon-thumbs-up"></i>
+                                        <h2 class="statistic-counter">@Model.CustomersCount</h2>
+                                        <h4 class="">مشتریان</h4>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="single_counter">
-                                    <div class="col-sm-3 col-xs-12">
-                                        <div class="single_counter_item">
-                                            <i class="icon icon-business-3"></i>
-                                            <h2 class="statistic-counter">281</h2>
-                                            <h4 class="">پست ها در 24 ساعت گذشته</h4>
-                                        </div>
+                            <div class="single_counter">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_counter_item">
+                                        <i class="icon icon-business-3"></i>
+                                        <h2 class="statistic-counter">@Model.ProductCount</h2>
+                                        <h4 class="">نمونه کار</h4>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="single_counter">
-                                    <div class="col-sm-3 col-xs-12">
-                                        <div class="single_counter_item">
-                                            <i class="icon icon-people-32"></i>
-                                            <h2 class="statistic-counter">618</h2>
-                                            <h4 class="">مجموع پست ها</h4>
-                                        </div>
-
+                            <div class="single_counter">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_counter_item">
+                                        <i class="icon icon-people-32"></i>
+                                        <h2 class="statistic-counter">@Model.EmployeeCount</h2>
+                                        <h4 class="">کارکنان</h4>
                                     </div>
+
                                 </div>
+                            </div>
 
-                                <div class="single_counter">
-                                    <div class="col-sm-3 col-xs-12">
-                                        <div class="single_counter_item">
-                                            <i class="icon icon-cup"></i>
-                                            <h2 class="statistic-counter">178</h2>
-                                            <h4 class="">ویژگی های شگفت انگیز</h4>
-
-                                        </div>
+                            <div class="single_counter">
+                                <div class="col-sm-3 col-xs-12">
+                                    <div class="single_counter_item">
+                                        <i class="icon icon-cup"></i>
+                                        <h2 class="statistic-counter">@Model.MessageCount</h2>
+                                        <h4 class="">پیام های دریافتی</h4>
                                     </div>
                                 </div>
                             </div>
@@ -389,257 +338,214 @@
                     </div>
                 </div>
             </div>
-        </div><!-- End off container -->
-    </section>   <!-- End of counter section -->
-   
-    <!-- Team Section -->
-    <section id="team" class="team">
-        <div class="main_team_area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="head_title textwhite text-center margin-top-80">
-                            <h2>تیم ما</h2>
-                            <div class="subtitle">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            </div>
-                            <div class="separator"></div>
-                        </div><!-- End off Head_title -->
-
-                        <div class="main_team">
-                            <ul>
-                                <li>
-                                    <div class="single_team_img">
-                                        <img src="/Site/assets/images/team1.jpg" alt="" />
-                                    </div>
-                                    <div class="single_team_text">
-                                        <h4>سجاد باقرزاده</h4>
-                                        <p>موسس</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single_team_img">
-                                        <img src="/Site/assets/images/team2.jpg" alt="" />
-                                    </div>
-                                    <div class="single_team_text">
-                                        <h4>ایمان مدائنی</h4>
-                                        <p>مهندسی</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single_team_img">
-                                        <img src="/Site/assets/images/team3.jpg" alt="" />
-                                    </div>
-                                    <div class="single_team_text">
-                                        <h4>بهادر قدم خیر</h4>
-                                        <p>توسعه دهنده وب</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single_team_img">
-                                        <img src="/Site/assets/images/team4.jpg" alt="" />
-                                    </div>
-                                    <div class="single_team_text">
-                                        <h4>سهیل علیزاده</h4>
-                                        <p>بازاریابی</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="single_team_img">
-                                        <img src="/Site/assets/images/test2.jpg" alt="" />
-                                    </div>
-                                    <div class="single_team_text">
-                                        <h4>شیوا محمدی</h4>
-                                        <p>طراح وب</p>
-                                    </div>
-                                </li>
-
-                            </ul>
-                        </div>
-
-                    </div><!-- End of main team contant -->
-                </div>
-            </div><!-- End of container -->
         </div>
-    </section><!-- End off Team Section -->
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
-    <!-- Client Logo Section -->
-    <section id="clogo" class="clogo">
-        <div class="container">
-            <div class="row">
-                <div class="main_clogo sections text-center">
+    </div><!-- End off container -->
+</section>   <!-- End of counter section -->
+   
+<!-- Team Section -->
+<section id="team" class="team">
+   @if (Model.Employees.Any())
+   {
+       @for (int i = 0; i <= Math.Ceiling((double) (Model.Employees.Count/5)); i++)
+       {
+           <div class="main_team_area">
+               <div class="container">
+                   <div class="row">
+                       <div class="col-sm-12">
+                           <div class="head_title textwhite text-center margin-top-80">
+                               <h2>تیم ما</h2>
+                               <div class="subtitle">
+                                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
+                               </div>
+                               <div class="separator"></div>
+                           </div><!-- End off Head_title -->
+
+                           <div class="main_team">
+                               <ul>
+                                   @foreach (var item in Model.Employees.Skip(i*5).Take(5))
+                                   {
+                                       <li>
+                                           <div class="single_team_img">
+                                               <img src="/Images/@item.ImageName" alt="@item.Name"/>
+                                           </div>
+                                           <div class="single_team_text">
+                                               <h4>@item.Name</h4>
+                                               <p>@item.JobTitle</p>
+                                           </div>
+                                       </li>
+                                   }
+                               </ul>
+                           </div>
+                       </div><!-- End of main team contant -->
+                   </div>
+               </div><!-- End of container -->
+           </div>
+       }
+   }
+</section><!-- End off Team Section -->
+
+<!-- Client Logo Section -->
+<section id="clogo" class="clogo">
+    <div class="container">
+        <div class="row">
+            <div class="main_clogo sections text-center">
+                <div class="head_title text-center">
+                    <h2>مشتریانی که با ما کار کرده اند</h2>
+                    <div class="separator"></div>
+                </div><!-- End off Head_title -->
+
+                @foreach (var item in Model.Customers)
+                {
+                    <div class="col-sm-3 col-xs-6">
+                        <a href="#"><img src="/Images/@item.ImageName" alt="brands" /></a>
+                    </div>
+                }
+                   
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+</section><!-- End off clogo Section -->
+   
+<section id="contact" class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="contact_contant sections">
                     <div class="head_title text-center">
-                        <h2>اشتراک گذاری با دیگران</h2>
-                        <div class="subtitle">
-                            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-                        </div>
+                        <h2>باما در ارتباط باشید</h2>
+                        <div class="subtitle">برای دریافت مشاوره رایگان می توانید برای ما پیام ارسال نمایید . تیم پشتیبانی ما در اولین فرصت به شماره تماس یا ایمیل شما پاسخ خواهند داد .</div>
                         <div class="separator"></div>
                     </div><!-- End off Head_title -->
-
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo1.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo2.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo3.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo4.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo5.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo6.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo9.png" alt="" /></a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        <a href=""><img src="/Site/assets/images/clogo8.png" alt="" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="divider"></div>
-    </section><!-- End off clogo Section -->
-   
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="contact_contant sections">
-                        <div class="head_title text-center">
-                            <h2>باما در ارتباط باشید</h2>
-                            <div class="subtitle">
-                                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
-                            </div>
-                            <div class="separator"></div>
-                        </div><!-- End off Head_title -->
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="main_contact_info">
-                                    <div class="row">
-                                        <div class="contact_info_content padding-top-90 padding-bottom-60 p_l_r">
-                                            <div class="col-sm-12">
-                                                <div class="single_contact_info">
-                                                    <div class="single_info_text">
-                                                        <h3>آدرس ما</h3>
-                                                        <h4>نرسیده به شریعتی خیابان ملک</h4>
-                                                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="main_contact_info">
+                                <div class="row">
+                                    <div class="contact_info_content padding-top-90 padding-bottom-60 p_l_r">
+                                        <div class="col-sm-12">
+                                            <div class="single_contact_info">
+                                                <div class="single_info_text">
+                                                    <h3>آدرس ما</h3>
+                                                    <h4>نرسیده به شریعتی خیابان ملک</h4>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
-                                                <div class="single_contact_info">
-                                                    <div class="single_info_text">
-                                                        <h3>تماس با ما</h3>
-                                                        <h4>+ 880 168 109 1425</h4>
-                                                        <h4>+ 0216809142</h4>
-                                                    </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="single_contact_info">
+                                                <div class="single_info_text">
+                                                    <h3>تماس با ما</h3>
+                                                    <h4>+ 880 168 109 1425</h4>
+                                                    <h4>+ 0216809142</h4>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12">
-                                                <div class="single_contact_info">
-                                                    <div class="single_info_text">
-                                                        <h3>ایمیل ما</h3>
-                                                        <h4>contactus@email.com</h4>
-                                                    </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="single_contact_info">
+                                                <div class="single_info_text">
+                                                    <h3>ایمیل ما</h3>
+                                                    <h4>contactus@email.com</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="col-sm-6">
-                                <div class="single_contant_right padding-top-90 padding-bottom-90">
-                                    <form action="/Home/SubmitMessage" id="formid" method="post">
-                                        <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
+                        <div class="col-sm-6">
+                            <div class="single_contant_right padding-top-90 padding-bottom-90">
+                                <form action="/Home/SubmitMessage" id="formid" method="post">
+                                    <div class="col-lg-8 col-md-8 col-sm-10 col-lg-offset-2 col-md-offset-2 col-sm-offset-1">
 
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" asp-for="Message.Name" placeholder="نام" required="required">
-                                                    </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" asp-for="Message.Name" placeholder="نام" required="required">
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="email" class="form-control" asp-for="Message.Email" placeholder="ایمیل" required="required">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" asp-for="Message.Phone" placeholder="شماره تماس" required="required">
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-12">
-                                                    <div class="form-group">
-                                                        <input type="text" class="form-control" asp-for="Message.Subject" placeholder="موضوع" required="required">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea class="form-control" asp-for="Message.Text" rows="7" placeholder="پیام" required="required"></textarea>
-                                            </div>
-                                            <div class="">
-                                                <input type="submit" value="ارسال پیام" class="btn btn-lg">
                                             </div>
                                         </div>
-                                    </form>
-                                </div>
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <input type="email" class="form-control" asp-for="Message.Email" placeholder="ایمیل" required="required">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" asp-for="Message.Phone" placeholder="شماره تماس" required="required">
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control" asp-for="Message.Subject" placeholder="موضوع" required="required">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <textarea class="form-control" asp-for="Message.Text" rows="7" placeholder="پیام" required="required"></textarea>
+                                        </div>
+                                        <div class="">
+                                            <input type="submit" value="ارسال پیام" class="btn btn-lg">
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End of contact section -->
+
+<section id="trial" class="trial text-center wow fadeIn" data-wow-duration="2s" data-wow-dealy="1.5s">
+    <div class="main_trial_area">
+        <div class="video_overlay sections">
+            <div class="container">
+                <div class="row">
+                    <div class="main_trial">
+                        <div class="col-sm-12">
+                            <h2> بیایید شروع کنیم. <span> رایگان است! </span></h2>
+                            <h4>برای دریافت خبرهای به روز در حوزه فناوری و IT و هم چنین تخفیف ها و آگهی های شرکت می توانید ایمیل خود را ثبت نمایید</h4>
+                            <div class="row">
+                                <form action="/Home/SubmitEmail" method="post">
+                                    <input type="email" asp-for="Email.EmailAddress" class="col-md-4" required="required" placeholder="ایمیل شما" style="height: 60px; margin-top: 10px; color: black"/>
+                                    <input class="btn btn-lg col-md-4" type="submit" value="ثبت ایمیل">
+                                </form>
+                            </div>
+                                
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- End of contact section -->
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
-    <section id="trial" class="trial text-center wow fadeIn" data-wow-duration="2s" data-wow-dealy="1.5s">
-        <div class="main_trial_area">
-            <div class="video_overlay sections">
-                <div class="container">
+    </div>
+</section><!-- End of Trial section -->
+<!--Footer section-->
+
+<section class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="main_footer">
                     <div class="row">
-                        <div class="main_trial">
-                            <div class="col-sm-12">
-                                <h2> بیایید شروع کنیم. <span> رایگان است! </span></h2>
-                                <h4>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد</h4>
-                                <a href="" class="btn btn-lg">اکنون شروع کن</a>
+                        <div class="col-sm-6 col-xs-12">
+                            <div class="flowus">
+                                <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
+                                <a href="https://google.com"><i class="fa fa-google-plus"></i></a>
+                                <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
+                                <a href="https://youtube.com"><i class="fa fa-youtube"></i></a>
+                                <a href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section><!-- End of Trial section -->
-    <!--Footer section-->
-    <section class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="main_footer">
-                        <div class="row">
-                            <div class="col-sm-6 col-xs-12">
-                                <div class="flowus">
-                                    <a href="https://facebook.com"><i class="fa fa-facebook"></i></a>
-                                    <a href="https://twitter.com"><i class="fa fa-twitter"></i></a>
-                                    <a href="https://google.com"><i class="fa fa-google-plus"></i></a>
-                                    <a href="https://instagram.com"><i class="fa fa-instagram"></i></a>
-                                    <a href="https://youtube.com"><i class="fa fa-youtube"></i></a>
-                                    <a href="https://dribbble.com/"><i class="fa fa-dribbble"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!-- End off footer Section-->
-    <!--ترجمه شده توسط مرجع تخصصی برنامه نویسان-->
+    </div>
+</section><!-- End off footer Section-->
 
 </div>
+

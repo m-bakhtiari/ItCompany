@@ -68,7 +68,7 @@ jQuery(document).ready(function ($) {
     $('.portfolio-img').magnificPopup({
         type: 'image',
         gallery: {
-            enabled: true
+            enabled: false
         }
     });
 
